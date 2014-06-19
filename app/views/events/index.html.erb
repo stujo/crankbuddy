@@ -1,1 +1,11 @@
 <h1> Event index </h1>
+
+<% @events.each do |event| %>
+  Event: <%=event.event_name %>
+  Description: <%=event.description %>
+  Date: <%=event.date %>
+  Time: <%=event.time %>
+Address:<%=event.address %><p></p><br>
+
+<% end %>
+<%= link_to("Add Workout", new_event_path) %>

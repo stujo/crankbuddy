@@ -34,12 +34,13 @@ group :development do
   gem 'awesome_print'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'forgery'
+  gem 'forgery' 
 end
 
 
 group :development, :test do
   gem 'rspec-rails', '2.99'
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
