@@ -11,7 +11,7 @@ describe EventsController do
 
   describe "GET 'show'" do
     it "returns http success" do
-      get 'show'
+      get 'event'
       response.should be_success
     end
   end
@@ -23,13 +23,18 @@ describe EventsController do
     end
   end
 
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
+  # describe "GET 'create'" do
+  #   it "returns http success" do
+  #     get 'create'
+  #     response.should be_success
+  #   end
+  # end
+   describe "create" do
+    it "responds to POST" do
+      post :create
+      expect(response.body).to eq "create called"
     end
   end
-
   describe "GET 'edit'" do
     it "returns http success" do
       get 'edit'
