@@ -1,13 +1,8 @@
 <h1> WorkOuts! </h1>
-<%= link_to("Add Workout", new_event_path) %>
+
+
 <% @events.each do |event| %>
-  Event: <%=event.event_name %>
-  Description: <%=event.description %><br>
-  Date: <%=event.date %>
-  Time: <%=event.time %>
-  Address:<%=event.address %>
-  Location:<%=event.location %><br>
-  Difficulty:<%=event.difficulty %>
+  <%= render partial: "event", locals:{event: event} %>
   <p></p><br>
 
 <% end %>

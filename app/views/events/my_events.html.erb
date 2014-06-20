@@ -2,20 +2,13 @@
 
 <tbody>
   <% @events.each do |event| %>
-      <tr>
-        <strong>Workout</strong><br>
-        <td><%= event.event_name %>-</td>
-        <td><%= event.description %></td><br>
-        <td><%= event.date %></td>
-        <td><%= event.time %></td>
-        <td><%= event.address %></td>
-        <td><%= event.location %></td>
-        <td><%= event.difficulty %></td>
+      
+    <%= render partial: "event", locals:{event: event} %>
+       
+    <%= link_to 'Edit', edit_event_path(event) %>
+    <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %><br>
         
-        <%= link_to 'Edit', edit_event_path(event) %>
-        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-        
-   <% end %>
-  <div><%= link_to 'All Workouts', events_path %></div>
+  <% end %>
+  <div><br><%= link_to 'All Workouts', events_path %></div>
   
 </tbody>

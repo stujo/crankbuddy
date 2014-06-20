@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'events#index'
   get 'my_events', to: 'events#my_events'
   resources :events
-    resources :event_users
+  resources :event_users
   
 
 

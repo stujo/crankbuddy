@@ -29,24 +29,18 @@ CREATE PAGE<h1>New Work Out</h1>
   <% end %>
 
 
-<tbody>
+
     <h2> All Your Workouts </h2>
-    <% @user_events.each do |event| %>
-       <tr>
-        <td><%= event.event_name %></td>
-        <td><%= event.description %></td><br>
-        <td><%= event.date %></td>
-        <td><%= event.time %></td>
-        <td><%= event.address %></td>
-        <td><%= event.location %></td><br>
-        <td><%= event.difficulty %></td><br>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Delete', event, method: :destroy, data: { confirm: 'Are you sure?' } %></td><br><br>
-       <% end %>
+    <% @user_events.each do |user_event| %>
+        <%= render partial: "event", locals:{event: user_event.event} %>
+
+         <%= link_to 'Edit', edit_event_path(event) %>
+        <%= link_to 'Delete', event, method: :destroy, data: { confirm: 'Are you sure?' } %><br><br>
+    <% end %>
        
-      </tr>
+     
    
-  </tbody>
+
 </table>
 
 
