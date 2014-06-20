@@ -1,2 +1,52 @@
-<h1>Events#create</h1>
-<p>Find me in app/views/events/create.html.erb</p>
+CREATE PAGE<h1>New Work Out</h1>
+
+<h2>Your New Workout</h2>
+<p id="notice"><%= notice %></p> 
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.event_name %>
+  <strong>Description:</strong>
+  <%= @event.description %><br>
+  <strong>Date:</strong>
+  <%= @event.date %>
+  <strong>Time:</strong>
+  <%= @event.time %>
+  <strong>Address:</strong>
+  <%= @event.address %><br>
+  <strong>Location:</strong>
+  <%= @event.location%><br>
+  <strong>Difficulty:</strong>
+  <%= @event.difficulty %>
+  <%= link_to 'Edit', edit_event_path(@event) %> 
+  
+
+  <%= link_to 'Back', events_path %><br>
+
+  </p>
+  <% if @event.user_id == current_user.id %>
+
+  <% end %>
+
+
+<tbody>
+    <h2> All Your Workouts </h2>
+    <% @user_events.each do |event| %>
+       <tr>
+        <td><%= event.event_name %></td>
+        <td><%= event.description %></td><br>
+        <td><%= event.date %></td>
+        <td><%= event.time %></td>
+        <td><%= event.address %></td>
+        <td><%= event.location %></td><br>
+        <td><%= event.difficulty %></td><br>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Delete', event, method: :destroy, data: { confirm: 'Are you sure?' } %></td><br><br>
+       <% end %>
+       
+      </tr>
+   
+  </tbody>
+</table>
+
+
