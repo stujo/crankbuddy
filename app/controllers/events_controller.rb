@@ -2,7 +2,8 @@ class EventsController < ApplicationController
  before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create, :my_events]
 
   def index
-    @events = Event.all.order(created_at: :desc).where 
+    @events = Event.all.order(created_at: :desc)
+    # possibly add .where to previous line to create filter for only recent events
     @event = EventUser.all
   end
 
