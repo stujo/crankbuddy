@@ -1,0 +1,33 @@
+<h1>New WorkOut</h1>
+<p>
+  <strong>Name:</strong><%= @event.event_name %>
+  <strong>Description:</strong> <%= @event.description %><br>
+    <strong>Date:</strong><%= @event.date %>
+    <strong>Time:</strong><%= @event.time %>
+    <strong>Address:</strong><%= @event.address %><br>
+    <strong>Location:</strong><%= @event.location%><br>
+  <strong>Difficulty:</strong><%= @event.difficulty %><br>
+  <%= link_to 'Edit', edit_event_path(@event) %> 
+  <%= link_to 'All Workouts', events_path %><br>
+    <p></p><br>
+
+</p>
+
+
+<h2> All Your Workouts </h2>
+<br>
+
+<%  current_user.events.each do |event| %>
+<%= event.event_name  %>
+<%= event.description %><br>
+<%= event.date %>
+<%= event.time %>
+<%= event.address %>
+<%= event.location %><br>
+<%= event.difficulty %><br>
+<%= link_to "Edit", edit_event_path(event) %>
+<%= link_to 'Delete', event, method: :delete, data:{confirm: "Are you Certain"} %>
+<br>
+<% end %>
+
+<%= link_to 'All Workouts', events_path %>

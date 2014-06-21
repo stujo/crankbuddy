@@ -1,0 +1,15 @@
+<h2><strong>My Workouts</strong></h2>
+
+<tbody>
+  <% @events.each do |event| %>
+      
+    <%= render partial: "event", locals:{event: event} %>
+       
+    <br><%= link_to 'Edit', edit_event_path(event) %>
+    <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+        
+  <% end %>
+  <div><br><%= link_to 'All Workouts', events_path %></div>
+  <%= link_to("Add Workout", new_event_path) %>
+  
+</tbody>

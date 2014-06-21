@@ -1,0 +1,26 @@
+<%= form_for(@event) do |f| %>
+  
+
+  <div class="field">
+    <%= f.label :Workout %><br>
+    <%= f.text_field :event_name %>
+  </div>
+  <div class="field">
+    <%= f.label :Description %><br>
+    <%= f.text_area :description %>
+  </div>
+      <%= f.label :Date %>
+    <%= f.text_field :date %>
+        <%= f.label :Time %>
+    <%= f.text_field :time %>
+        <%= f.label :Address %>
+    <%= f.text_field :address %><br>
+        <%= f.label :Location %>
+    <%= f.text_field :location %>
+        <%= f.label :Difficulty %>
+    <%= f.text_field :difficulty %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

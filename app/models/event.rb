@@ -4,4 +4,8 @@ class Event < ActiveRecord::Base
    validates :date, presence: true
    validates :time, presence: true
    validates :address, presence: true
+
+   # belongs_to :users
+   has_many :event_users
+   has_many :users, :through => :event_users
 end
