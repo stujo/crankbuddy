@@ -6,10 +6,11 @@
 <% @events.each do |event| %>
   <%= render partial: "event", locals:{event: event} %>
   <p></p>
-<%= form_for event.event_users.new do |f| %>
+  <!-- event_id of current user to compare to event_ids of the events we are cycling through -->
+      <%= form_for event.event_users.new do |f| %>
               <%= f.hidden_field :event_id, value: event.id%>
               <%= f.submit "Join Group" %><br>
-<% end %>
+      <% end %>
 
 <% end %>
 <%= link_to("Add Workout", new_event_path) %>
