@@ -6,6 +6,8 @@ gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'geocoder'
+
 gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -43,6 +45,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.99'
   gem 'shoulda-matchers'
+  gem 'forgery'
 end
 
 # Use ActiveModel has_secure_password
