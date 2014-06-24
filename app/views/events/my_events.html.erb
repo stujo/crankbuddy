@@ -4,12 +4,17 @@
   <% @events.each do |event| %>
       
     <%= render partial: "event", locals:{event: event} %>
+    
+    <%= link_to("map", "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}") %>
        
     <br><%= link_to 'Edit', edit_event_path(event) %>
     <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+
+    
         
   <% end %>
   <div><br><%= link_to 'All Workouts', events_path %></div>
   <%= link_to("Add Workout", new_event_path) %>
+
   
 </tbody>

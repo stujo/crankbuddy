@@ -2,6 +2,7 @@
 <%= link_to("Add Workout", new_event_path) %>
 <%= link_to("My Workouts", my_events_path) %>
 <%= paginate @events.order(created_at: :desc) %>
+
 <% @events.each do |event| %>
   <%= render partial: "event", locals:{event: event} %>
 
@@ -13,8 +14,9 @@
               <%= f.submit "Join Group" %><br>
       <% end %>
     <% end %>
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}" %>
-      
+
+    <%= link_to("map", "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}") %>
+    
 <% end %>
 
 <%= link_to("Add Workout", new_event_path) %>
