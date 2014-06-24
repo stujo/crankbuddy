@@ -34,21 +34,17 @@ describe EventsController do
         get :show, id: id
     end
 end
-  #   # it "assigns the requested event to @event" do
-  #   # it "renders the :show template"
-  #   response.should be_success 
-  #   end
-  # end
 
+ describe "POST#create" do
+  it "redirects to the index page" do
 
+    valid_attributes = {event_name: Forgery(:lorem_ipsum).words(2, :random =>true), description: Forgery(:lorem_ipsum).words(2, :random =>true),address: Forgery(:lorem_ipsum).words(2, :random =>true),date: 12, time: 12}
 
-  # describe "POST #create" do
-  #   context "with valid attributes" do
-  #     it "save the new event in the datebase"
-  #     it "redirects to the index page"
-  #     # response.should be_success 
-  #   end
-  # end
+    post :create,{:event => valid_attributes} 
+    response.should redirect_to(assigns(:event))
+
+  end
+end
 
   # describe "GET #new" do
   #   it "assigns a new Event to @event"

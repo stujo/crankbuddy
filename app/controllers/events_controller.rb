@@ -2,9 +2,10 @@ class EventsController < ApplicationController
  before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create, :my_events]
 
   def index
-    @events = Event.all.order(created_at: :desc)
+    @events = Event.order(created_at: :desc).page(params[:page]).per(7)
     # possibly add .where to previous line to create filter for only recent events
     @event = EventUser.all
+
   end
 
   def show
@@ -18,7 +19,13 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.create(event_params)
     @user_events = current_user.events
-    redirect_to events_path(@event)
+    if @event.save
+      flash[:notice] = "Your Event was created"
+      redirect_to event_path(@event)
+    else
+      flash[:notice] = "Your Event was not created, please retry!"
+      redirect_to new_event_path
+    end
   end
 
   def my_events

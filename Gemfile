@@ -5,8 +5,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'kaminari'
 
 gem 'geocoder'
+# gem 'bootstrap-sass'
+# gem 'bootstrap-generators'
+gem "therubyracer"
+gem "less-rails" 
+gem "twitter-bootstrap-rails"
 
 gem 'devise'
 # Use SCSS for stylesheets
@@ -38,7 +44,7 @@ group :development do
   gem 'awesome_print'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'forgery' 
+  
 end
 
 
