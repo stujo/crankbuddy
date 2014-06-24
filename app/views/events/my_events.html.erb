@@ -1,4 +1,7 @@
 <h2><strong>My Workouts</strong></h2>
+<%= link_to 'All Workouts', events_path %><br>
+<%= link_to("Add Workout", new_event_path) %>
+<%= paginate @events.order(created_at: :desc) %>
 
 <tbody>
   <% @events.each do |event| %>
@@ -15,6 +18,7 @@
   <% end %>
   <div><br><%= link_to 'All Workouts', events_path %></div>
   <%= link_to("Add Workout", new_event_path) %>
+  <%= paginate @events.order(created_at: :desc) %>
 
   
 </tbody>

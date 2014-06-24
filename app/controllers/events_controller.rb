@@ -19,6 +19,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.create(event_params)
     @user_events = current_user.events
+    
     if @event.save
       flash[:notice] = "Your Event was created"
       redirect_to event_path(@event)
@@ -29,7 +30,7 @@ class EventsController < ApplicationController
   end
 
   def my_events
-    @events = current_user.events.all
+    @events = current_user.events.page(params[:page]).per(7)
   end
 
   def edit
