@@ -9,6 +9,7 @@
   <strong>Difficulty:</strong><%= @event.difficulty %><br>
   <%= link_to 'Edit', edit_event_path(@event) %> 
   <%= link_to 'All Workouts', events_path %><br>
+  <%= image_tag("http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}") %>
     <p></p><br>
 
 </p>
