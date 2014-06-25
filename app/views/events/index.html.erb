@@ -1,21 +1,37 @@
+
+<!-- link to new event page -->
 <div class="event_buttons"><div></div>
 <div class="new_event_button"><%= link_to("Add Workout", new_event_path, :id=>"add_workout") %></div><div></div>
+
+<!-- link to all the current users workouts -->
 <div class="my_workout"><%= link_to("My Workouts", my_events_path, :id=>"add_workout") %></div><div></div>
 </div>
+<hr></hr>
+<div class="paginate">
+  <!-- creates pagination for each page after 7 items -->
 <%= paginate @events.order(created_at: :desc) %>
+<h3 id="workouts"><strong>Workouts</strong></h3>
+</div>
 
+<!-- check to see if there is a current user/signed in user -->
 <% if current_user %>
+
+<!-- if there is a current user it starts each iteration for listing the index of events from the DB -->
   <% @events.each do |event| %>
+ <!--  renders the partial for the event index -->
     <%= render partial: "event", locals:{event: event} %>
 
     <p></p>
-    <!-- event_id of current user to compare to event_ids of the events we are cycling through -->
+    <!-- checks to see if the current user_is and the event being listed have a common id from the event_user table if this is true it will do the iteration -->
       <% if current_user && event.event_users.where(user_id:current_user.id).first %>
+
+      <!-- link to google static map for location -->
         <%= link_to("map", event_path(event)) %>
         
-      
+      <!-- replaces the "join button" to show the user that they ahve already joined this event -->
          <h5>You have joined this Workout</h5>
 
+         <!-- if the previous statement is not true this hiiden from creates a button "join" to allow the cuurent user to join the event. When clicked it creates a line item on the event_user table -->
       <% else %>
             <%= form_for event.event_users.new do |f| %>
                     <%= f.hidden_field :event_id, value: event.id %>
@@ -24,14 +40,17 @@
             <%= link_to("map", event_path(event)) %>
             
       <% end %>
+      
+  <% end %>
       <div class="Event_buttons">
       <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div>
       <div id="my_workout"><%= link_to("My Workouts", my_events_path) %></div>
       </div>
-  <% end %>
 <% else %>
   <h4> Please sign in to join a workout </h4>
   <div>
+
+    <!-- if neither previous statement is true this iteration displays an idex of events but only shows allowed information...not location or join button -->
   <% @events.each do |event| %>
       <strong>Workout:</strong> <%=event.event_name %>- <%=event.description %>, <%=event.difficulty %><br>
       <strong>Date:</strong> <%=event.date %><br>

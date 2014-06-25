@@ -31,6 +31,10 @@ body{
   padding-right: 2em;
   flex: 1 100%;
 }
+#email{
+  padding-left: 1em;
+  padding-right: 1em;
+}
 
 .heading{
   color: rgb(66, 107, 47);
@@ -44,14 +48,16 @@ body{
 }
 
 #banner{
-
+  font-family: 'Oleo Script';
 }
+
 #tag_line{
   align-self: center;
   padding-left: 2em;
+  font-family: 'Rock Salt';
 }
 .event_buttons{
-  color:red;
+  text-color: rgb(66, 107, 47);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -63,15 +69,26 @@ body{
 
 .new_event_button{
 /*  flex-grow:5;*/
-  text-color: red;
+  color: rgb(66, 107, 47);
 
 }
 
 #add_workout{
-  color:red;
+  color: rgb(123, 166, 103);
 }
 
 #my_workout{
  /* flex-grow:5;*/
-
 }
+hr {
+  border: 0;
+ /* width: 80%;*/
+  color: #f00;
+  background-color: rgb(123, 166, 103);
+  height: 5px;
+}
+.paginate{
+  font-size: 12px;
+}
+
+
