@@ -44,6 +44,7 @@ group :development do
   gem 'awesome_print'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem "better_errors"
   
 end
 
@@ -53,6 +54,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'forgery'
 end
+
+gem "binding_of_caller"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

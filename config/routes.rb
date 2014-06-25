@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'my_events', to: 'events#my_events'
   resources :events
   resources :event_users
-  
+  resources :users
+
+ 
 
 
   
