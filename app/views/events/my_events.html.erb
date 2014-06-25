@@ -1,9 +1,12 @@
+
+#this page shows all the individuals events that they have created or joined
 <h2><strong>My Workouts</strong></h2>
 <%= link_to 'All Workouts', events_path %><br>
 <%= link_to("Add Workout", new_event_path) %>
 <%= paginate @events.order(created_at: :desc) %>
 
 <tbody>
+  <!-- iterates throught he partial to show user all of their events and a static map -->
   <% @events.each do |event| %>
       
     <%= render partial: "event", locals:{event: event} %>

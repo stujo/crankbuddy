@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20140625194723) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  #this is the join table 
   create_table "event_users", force: true do |t|
     t.integer  "user_id"
     t.integer  "event_id"
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140625194723) do
   add_index "event_users", ["event_id"], name: "index_event_users_on_event_id", using: :btree
   add_index "event_users", ["user_id"], name: "index_event_users_on_user_id", using: :btree
 
+#event table with LAt long for geocoder
   create_table "events", force: true do |t|
     t.string   "event_name"
     t.string   "description"
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140625194723) do
     t.float    "latitude"
   end
 
+#user table created by devise
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
