@@ -36,3 +36,14 @@
     <% end %>
   </div>
 </div>
+    <div class="wrapper">
+    <!-- link to new event page -->
+      <div class="event_buttons">
+        <div class= "center"></div>
+        
+        <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div>
+        <div></div>
+
+      <!-- link to all the current users workouts -->
+      <div id="my_event_button"><%= link_to("My Workouts", my_events_path) %></div><div></div>
+    </div>

@@ -5,21 +5,21 @@
 
 <div class="banner">
 <h2 id="header">FIT..Buddy! </h2>
-<h5 id="tag_line">Find people to workout with, you decide what, when, and where!</h5>
+<h5 id="tag_line">Find people to workout with. You decide what, when, and where!</h5>
 </div>
 
 <hr class = "front_page">
-<div class="splash">Welcome to Fit..Buddy. This website is designed for busy workout enthusiasts. Once you sign in you can create and join workouts with other people to fit your schedule.</div>
+<div class="splash">Welcome to Fit..Buddy. This website is designed for busy workout enthusiasts. Once you sign in you can create and join workouts with other people on your own schedule.</div>
 
-<div class="wrapper">
-<!-- link to new event page -->
-      <div class="event_buttons">
+    <div class="wrapper">
+    <!-- link to new event page -->
+        <div class="event_buttons">
         <div class= "center"></div>
-        
-        <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div><div></div>
+        <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div>
+        <div></div>
 
       <!-- link to all the current users workouts -->
-      <div id="my_event_button"><%= link_to("My Workouts", my_events_path) %></div><div></div>
+        <div id="my_event_button"><%= link_to("My Workouts", my_events_path) %></div><div></div>
     </div>
 
   <!-- creates pagination for each page after 7 items -->
@@ -37,12 +37,16 @@
     <p></p>
     <!-- checks to see if the current user_is and the event being listed have a common id from the event_user table if this is true it will do the iteration -->
       <% if current_user && event.event_users.where(user_id:current_user.id).first %>
-
+      <h5 id="rsvp">People RSVP'D for this workout:
+     <%= event.users.length %></h5> 
+      <!-- replaces the "join button" to show the user that they ahve already joined this event -->
+      <h5 id="rsvp">You have joined this Workout</h5>
       <!-- link to google static map for location -->
-        <%= link_to("map", event_path(event)) %>
+        <%= link_to("map", event_path(event), id:"map") %>
+        <hr></hr>
         
       <!-- replaces the "join button" to show the user that they ahve already joined this event -->
-         <h5>You have joined this Workout</h5>
+       
 
          <!-- if the previous statement is not true this hiiden from creates a button "join" to allow the cuurent user to join the event. When clicked it creates a line item on the event_user table -->
       <% else %>
@@ -51,7 +55,9 @@
                     <%= f.submit "Join", class: 'button' %><br> 
                 
                    <!--  this is the counter.  it coutns the number of items in the event user table -->
-                    <h5>People RSVP'D: <%= event.users.length %> </h5>
+                    <h5 id="rsvp">People RSVP'D:
+                    </h5> 
+                    <%= event.users.length %> 
                   <hr id="event_border"> 
             <% end %>
             <%= link_to("map", event_path(event)) %>
@@ -60,8 +66,7 @@
       
   <% end %>
       <div class="event_buttons">
-    
-  
+      <div class= "center"></div>
       <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div><div></div>
 
       <!-- link to all the current users workouts -->
