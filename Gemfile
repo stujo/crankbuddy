@@ -56,6 +56,7 @@ group :development do
   # allows you to interupt execution and access database for debugging
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem "better_errors"
   
 end
 
@@ -68,6 +69,8 @@ group :development, :test do
   #Making meaningful development data for your application. more useful seed data
   gem 'forgery'
 end
+
+gem "binding_of_caller"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

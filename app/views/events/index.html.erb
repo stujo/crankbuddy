@@ -35,10 +35,11 @@
       <% else %>
             <%= form_for event.event_users.new do |f| %>
                     <%= f.hidden_field :event_id, value: event.id %>
-                    <%= f.submit "Join Group" %><br>
+                    <%= f.submit "Join" %><br> 
+                    <%= event.users.length %>
             <% end %>
             <%= link_to("map", event_path(event)) %>
-            
+
       <% end %>
       
   <% end %>
