@@ -19,7 +19,6 @@
                     <%= f.hidden_field :event_id, value: event.id %>
                     <%= f.submit "Join" %><br> 
                     <%= event.users.length %>
-                    <%= button_to 'Join'%> 
             <% end %>
             <%= link_to("map", event_path(event)) %>
 
