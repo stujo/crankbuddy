@@ -1,38 +1,40 @@
-<h1>New WorkOut</h1>
+<div class="wrapper">
+    <h1>New Workout</h1>
 
-<!-- displays the most recently created event and its map or which ever event map you are looking for with that event information -->
-<p>
-  <strong>Name:</strong><%= @event.event_name %>
-  <strong>Description:</strong> <%= @event.description %><br>
-    <strong>Date:</strong><%= @event.date %>
-    <strong>Time:</strong><%= @event.time %>
-    <strong>Address:</strong><%= @event.address %><br>
-    <strong>Location:</strong><%= @event.location%><br>
-  <strong>Difficulty:</strong><%= @event.difficulty %><br>
-  <%= link_to 'Edit', edit_event_path(@event) %> 
-  <%= link_to 'All Workouts', events_path %><br>
-  <%= image_tag("http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}") %>
-    <p></p><br>
+    <!-- displays the most recently created event and its map or which ever event map you are looking for with that event information -->
+    <p>
+      Name:<%= @event.event_name %>
+      Description: <%= @event.description %><br>
+        Date:<%= @event.date %>
+        Time:<%= @event.time %>
+        Address:<%= @event.address %><br>
+        Location:<%= @event.location%><br>
+      Difficulty:<%= @event.difficulty %><br>
+      <%= link_to 'Edit', edit_event_path(@event) %> 
+      <%= link_to 'All Workouts', events_path %><br>
+      <%= image_tag("http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}") %>
+      
 
-</p>
+    </p>
 
 
-<h2> All Your Workouts </h2> 
-<br>
-<!-- iterates through all the current users event  -->
-<%  current_user.events.each do |event| %>
-<%= event.event_name  %>
-<%= event.description %><br>
-<%= event.date %>
-<%= event.time %>
-<%= event.address %>
-<%= event.location %><br>
-<%= event.difficulty %><br>
-<%= link_to "Edit", edit_event_path(event) %>
-<%= link_to 'Delete', event, method: :delete, data:{confirm: "Are you Certain"} %>
-<%= link_to("map", event_path(event)) %>
-<br>
-<% end %>
+    <h2> All Your Workouts </h2> 
+    
+    <!-- iterates through all the current users event  -->
+    <%  current_user.events.each do |event| %>
+    <%= event.event_name  %>
+    <%= event.description %><br>
+    <%= event.date %>
+    <%= event.time %>
+    <%= event.address %>
+    <%= event.location %><br>
+    <%= event.difficulty %><br>
+    <%= link_to "Edit", edit_event_path(event) %>
+    <%= link_to 'Delete', event, method: :delete, data:{confirm: "Are you Certain"} %>
+    <%= link_to("map", event_path(event)) %>
+    <br>
+    <% end %>
 
-<%= link_to 'All Workouts', events_path %>
+    <%= link_to 'All Workouts', events_path %>
+  </div>
 

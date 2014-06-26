@@ -1,17 +1,30 @@
+<!-- <div class="heading">
+<h1 id="banner">FIT..Buddy! </h1>
+<h5 id="tag_line">Find people to workout with, you decide what, when, and where!</h5>
+</div> -->
 
-<!-- link to new event page -->
-<div class="event_buttons"><div></div>
-<div class="new_event_button"><%= link_to("Add Workout", new_event_path, :id=>"add_workout") %></div><div></div>
-
-<!-- link to all the current users workouts -->
-<div class="my_workout"><%= link_to("My Workouts", my_events_path, :id=>"add_workout") %></div><div></div>
+<div class="banner">
+<h2 id="header">FIT..Buddy! </h2>
+<h5 id="tag_line">Find people to workout with, you decide what, when, and where!</h5>
 </div>
-<hr></hr>
-<div class="paginate">
+
+<hr class = "front_page">
+<div class="splash">Welcome to Fit..Buddy. This website is designed for busy workout enthusiasts. Once you sign in you can create and join workouts with other people to fit your schedule.</div>
+
+<div class="wrapper">
+<!-- link to new event page -->
+      <div class="event_buttons">
+        <div class= "center"></div>
+        
+        <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div><div></div>
+
+      <!-- link to all the current users workouts -->
+      <div id="my_event_button"><%= link_to("My Workouts", my_events_path) %></div><div></div>
+    </div>
+
   <!-- creates pagination for each page after 7 items -->
 <%= paginate @events.order(created_at: :desc) %>
 <h3 id="workouts"><strong>Workouts</strong></h3>
-</div>
 
 <!-- check to see if there is a current user/signed in user -->
 <% if current_user %>
@@ -35,17 +48,24 @@
       <% else %>
             <%= form_for event.event_users.new do |f| %>
                     <%= f.hidden_field :event_id, value: event.id %>
-                    <%= f.submit "Join" %><br> 
-                    <%= event.users.length %>
+                    <%= f.submit "Join", class: 'button' %><br> 
+                
+                   <!--  this is the counter.  it coutns the number of items in the event user table -->
+                    <h5>People RSVP'D: <%= event.users.length %> </h5>
+                  <hr id="event_border"> 
             <% end %>
             <%= link_to("map", event_path(event)) %>
 
       <% end %>
       
   <% end %>
-      <div class="Event_buttons">
-      <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div>
-      <div id="my_workout"><%= link_to("My Workouts", my_events_path) %></div>
+      <div class="event_buttons">
+    
+  
+      <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div><div></div>
+
+      <!-- link to all the current users workouts -->
+      <div id="my_event_button"><%= link_to("My Workouts", my_events_path) %></div><div></div>
       </div>
 <% else %>
   <h4> Please sign in to join a workout </h4>
@@ -58,10 +78,11 @@
       <strong>Time: </strong><%=event.time %>
       <p></p>
     </div>
-     
+     <hr id="event_border"> 
   <% end %>
 <% end %>
 
 <br>
 
 <%= paginate @events.order(created_at: :desc) %>
+</div>

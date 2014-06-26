@@ -15,80 +15,264 @@
  *= require_self
  */
 
-body{
-  padding: 0;
-  background: rgb(185, 254, 156);
+body {
+  background-image: url("white_wall.png")!important;
+  font-family: 'Raleway', sans-serif;
+  margin:10px;
 }
 
-.navbar-text {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  margin: 0;
-  padding: 0;
-  text-align: right;
-  background-color: rgb(197, 229, 181);
-  padding-right: 2em;
-  flex: 1 100%;
+.nav_box{
+  display:flex;
 }
-#email{
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
-.heading{
-  color: rgb(66, 107, 47);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-flow: center;
-  align-content:stretch;
-  justify-content: center;
+.navbar-text{
+margin-left: 60%;
+color: rgb(188,193,111);
+font-size: 1em;
+font-weight: bolder;
+flex: 1 100%;
+line-height: 1!important;
 
 }
 
-#banner{
-  font-family: 'Oleo Script';
+.navbar-link{
+color: rgb(146,196,208);
+font-size: .85em;
+margin: 5px;
+
 }
 
+.navbar-link:hover{
+color:rgb(131,99,71);
+}
+
+alert{
+color:rgb(131,99,71);
+}
+
+#header {
+background-color: rgb(129,192,207);
+color: white;
+font-size: 3.5em;
+padding: 50px;
+margin: 1px;
+font-family: 'Oleo Script';
+
+}
 #tag_line{
   align-self: center;
   padding-left: 2em;
   font-family: 'Rock Salt';
 }
+
+#sign_up {
+background-color: rgb(129,192,207);
+color: white;
+font-size: 2.5em;
+padding: 50px;
+margin: 50px;
+border: solid 1px rgb(119,99,71);
+}
+
+
+#sign_up_box{
+margin: 50px;
+border: solid 1px rgb(119,99,71);
+padding: 20px;
+}
+
+#sign_in{
+background-color: rgb(129,192,207);
+color: white;
+font-size: 2.5em;
+padding: 50px;
+margin: 50px;
+border: solid 1px rgb(119,99,71);
+}
+
+#sign_in_box{
+margin: 50px;
+border: solid 1px rgb(119,99,71);
+padding: 20px;
+}
+
+#pass_forget{
+background-color: rgb(129,192,207);
+color: white;
+font-size: 2.5em;
+padding: 50px;
+margin: 50px;
+border: solid 1px rgb(119,99,71);
+}
+
+#pass_forget_box{
+margin: 50px;
+border: solid 1px rgb(119,99,71);
+padding: 20px;
+}
+
+h2{
+padding: 20px;
+margin: 20px;
+text-shadow: 2px 2px rgba(41, 128, 185,1.0);
+
+}
+
+.front_page{
+background-color: rgb(188,193,111);
+height: 8px;
+
+}
+
 .event_buttons{
-  text-color: rgb(66, 107, 47);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-flow: center;
-  justify-content: space-between;
-  align-content:stretch;
+display: flex;
+flex-direction: row;
+flex-wrap:wrap;
+justify-content: space-between;
+flex_flow: row wrap;
 
 }
 
-.new_event_button{
-/*  flex-grow:5;*/
-  color: rgb(66, 107, 47);
+.container{
+display: flex;
+flex-direction: row;
 
 }
 
-#add_workout{
-  color: rgb(123, 166, 103);
+.splash{
+order: 1;
+font-size: 2em;
+line-height: 1.125;
+color: rgb(119,99,71);
+margin: 50px;
+border-bottom: 1px solid rgb(255,217,124);
+border-top: 1px solid rgb(255,217,124);
+padding: 25px;
 }
 
-#my_workout{
- /* flex-grow:5;*/
-}
-hr {
-  border: 0;
- /* width: 80%;*/
-  color: #f00;
-  background-color: rgb(123, 166, 103);
-  height: 5px;
-}
-.paginate{
-  font-size: 12px;
+.wrapper{
+order: 2;
+font-size: 1.5em;
+color: rgb(119,99,71);
+margin: 50px;
 }
 
+.pagination {
+margin: 35px;
+color: rgb(129,192,207);
+text-decoration: none;
+font-size: .75em;
+font-weight: 400;
+font-family: arial;
+padding-left: 100px;
+}
+
+.pagination a{
+color: rgb(129,192,207);
+text-decoration: none;
+}
+
+.pagination a:hover{
+color: rgb(177,181,71);
+}
+
+.event_buttons a{
+color:rgb(212,176,145); 
+}
+
+.event_buttons a:hover{
+color:rgb(129,192,207);
+}
+
+#event_border{
+color: rgb(234,234,234);
+border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:    -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+.button {
+color: white;
+font-size: .55em;
+width: 65px;
+height: 30px;
+border: none;
+border-radius: 5px;
+margin-top: 20px;
+padding: 0;
+background: #B1938B  ;
+border: solid 1px rgb(119,99,71);
+}
+
+.button:hover {
+background-color:rgb(146,196,208);
+color:#B1938B  ;
+}
+
+.button_big{
+color: white;
+font-size: .55em;
+width: 265px;
+height: 30px;
+border: none;
+border-radius: 5px;
+margin-top: 20px;
+padding: 0;
+background: #B1938B  ;
+border: solid 1px rgb(119,99,71);
+}
+
+.button_big:hover{
+background-color:rgb(146,196,208);
+color:#B1938B  ;
+}
+
+a[href="/users/sign_in"]{
+color:rgb(146,196,208);
+}
+
+a[href="/users/sign_in"]:hover{
+color:rgb(131,99,71);
+
+}
+
+a[href="/users/sign_up"]{
+color:rgb(146,196,208);
+}
+
+a[href="/users/sign_up"]:hover{
+color:rgb(131,99,71);
+}
+
+a[href="/users/password/new"]{
+color:rgb(146,196,208);
+}
+
+a[href="/users/password/new"]:hover{
+color:rgb(131,99,71);
+}
+
+.alert{
+color:rgb(255,217,124);
+}
+
+#event_description{
+margin: 5px;
+}
+
+#event_event_name{
+margin: 5px;
+}
+#event_address{
+margin: 5px;
+}
+#event_time{
+margin: 5px;
+}
+#event_date{
+margin: 5px;
+}
+p
 

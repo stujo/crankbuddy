@@ -1,8 +1,14 @@
 
-#this page shows all the individuals events that they have created or joined
+<!-- #this page shows all the individuals events that they have created or joined -->
 <h2><strong>My Workouts</strong></h2>
-<%= link_to 'All Workouts', events_path %><br>
-<%= link_to("Add Workout", new_event_path) %>
+<div class="event_buttons">
+     
+  
+      <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div><div></div>
+
+      <!-- link to all the current users workouts -->
+      <div id="my_event_button"><%= link_to("My Workouts", my_events_path) %></div><div></div>
+      </div>
 <%= paginate @events.order(created_at: :desc) %>
 
 <tbody>
@@ -19,8 +25,14 @@
     
         
   <% end %>
-  <div><br><%= link_to 'All Workouts', events_path %></div>
-  <%= link_to("Add Workout", new_event_path) %>
+  <div class="event_buttons">
+     <div class= "center"></div>
+  
+      <div id="new_event_button"><%= link_to("Add Workout", new_event_path) %></div><div></div>
+
+      <!-- link to all the current users workouts -->
+      <div id="my_event_button"><%= link_to("My Workouts", my_events_path) %></div><div></div>
+      </div>
   <%= paginate @events.order(created_at: :desc) %>
 
   
