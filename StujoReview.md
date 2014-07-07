@@ -69,7 +69,7 @@ Ensure test suite is running
   * Evaluation: Some missing checks, Event update and destroy are not protected
 * New Technology
   * Expectation: Utilitzes a new JSON API or gem that adds new functionality
-  * Evaluation: I don't see this
+  * Evaluation: Use of Geocoder
 * Javascript, jQuery
   * Expectation: Adds javascript to the applicaiton to enhance functionality 
   * Evaluation: I don't see jQuery usage (empty coffeescript files)
